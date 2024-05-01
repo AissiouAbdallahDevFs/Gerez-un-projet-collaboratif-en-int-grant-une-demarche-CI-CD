@@ -16,6 +16,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Navigate to frontend directory
+      run: cd front
+
+    - name: List files in current directory
+      run: ls
+
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
@@ -26,6 +32,7 @@ jobs:
 
     - name: Run frontend tests and generate coverage report
       run: npm test -- --no-watch --code-coverage
+
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
