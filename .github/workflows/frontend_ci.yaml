@@ -28,7 +28,7 @@ jobs:
       run: npm test -- --no-watch --code-coverage
 
     - name: Analyze frontend code with SonarQube
-      uses: sonarsource/sonarcloud-github-action@v1
+      uses: sonarsource/sonarcloud-github-action@v3
       with:
         organization: "AissiouAbdallahDevFs"
         token: ${{ secrets.SONAR_TOKEN }}
