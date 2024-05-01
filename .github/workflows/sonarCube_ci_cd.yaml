@@ -33,9 +33,12 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Navigate to back directory
-        run: cd back
+        working-directory: front
+        run: echo "Navigated to back directory"
       - name: Build and analyze
+        run: echo "Build and analyze"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Build and analyze
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=AissiouAbdallahDevFs_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
