@@ -30,10 +30,10 @@ jobs:
     - name: Analyze code with SonarQube
       uses: sonarsource/sonarcloud-github-action@v1
       with:
-        organization: "BobApp"
+        organization: "AissiouAbdallahDevFs"
         token: ${{ secrets.SONAR_TOKEN }}
-        projectKey: "<backendBobApp-key>"
-        projectName: "<backendBobApp-name>"
+        projectKey: "<AissiouAbdallahDevFs>"
+        projectName: "<Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD>"
         sources: "src"
         language: "java"
 

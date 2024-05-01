@@ -30,12 +30,12 @@ jobs:
     - name: Analyze frontend code with SonarQube
       uses: sonarsource/sonarcloud-github-action@v1
       with:
-        organization: "<your-organization>"
+        organization: "AissiouAbdallahDevFs"
         token: ${{ secrets.SONAR_TOKEN }}
-        projectKey: "<FrontEndBobApp-key>"
-        projectName: "<backendBobApp>"
+        projectKey: "<AissiouAbdallahDevFs>"
+        projectName: "<Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD>"
         sources: "src"
-        language: "javascript"
+        language: "java"
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
