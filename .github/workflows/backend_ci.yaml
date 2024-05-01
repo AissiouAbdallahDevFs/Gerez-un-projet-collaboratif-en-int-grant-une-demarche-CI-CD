@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-backend:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +27,7 @@ jobs:
     - name: Run backend tests and generate coverage report
       run: mvn test jacoco:report
 
-    - name: Analyze code with SonarQube
+    - name: Analyze backend code with SonarQube
       uses: sonarsource/sonarcloud-github-action@v1
       with:
         organization: "AissiouAbdallahDevFs"
@@ -53,3 +53,8 @@ jobs:
         file: ./backend/Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/backend-image:latest
+
+
+
+
+        

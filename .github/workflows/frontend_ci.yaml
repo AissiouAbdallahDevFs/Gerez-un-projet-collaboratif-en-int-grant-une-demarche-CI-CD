@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-frontend:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +35,7 @@ jobs:
         projectKey: "<AissiouAbdallahDevFs>"
         projectName: "<Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD>"
         sources: "src"
-        language: "java"
+        language: "javascript"
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
