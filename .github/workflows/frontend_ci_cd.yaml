@@ -64,8 +64,8 @@ jobs:
         with:
           projectBaseDir: front
           args: >
-            -Dsonar.organization=org-shiirow-123
-            -Dsonar.projectKey=shiirows_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+            -Dsonar.organization=aissiouabdallahdevfs
+            -Dsonar.projectKey=AissiouAbdallahDevFs_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
