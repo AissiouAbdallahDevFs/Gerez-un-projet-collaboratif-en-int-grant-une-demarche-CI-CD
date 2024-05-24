@@ -16,7 +16,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up JDK 11
+    - name: Set up JDK 11 for Maven
       uses: actions/setup-java@v1
       with:
         java-version: '11'
@@ -30,6 +30,11 @@ jobs:
       run: |
         cd back
         mvn test jacoco:report
+
+    - name: Set up JDK 17 for SonarCloud analysis
+      uses: actions/setup-java@v1
+      with:
+        java-version: '17'
 
     - name: SonarCloud Analysis for Backend
       run: |
