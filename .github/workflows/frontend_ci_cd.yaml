@@ -29,6 +29,16 @@ jobs:
       run: npm test -- --watch=false --browsers=ChromeHeadless --code-coverage
       working-directory: front
 
+    - name: SonarCloud Analysis for Frontend
+      run: |
+        npx sonar-scanner \
+          -Dsonar.projectKey=AissiouAbdallahDevFs_FrontendProject \
+          -Dsonar.sources=./front \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
@@ -45,27 +55,3 @@ jobs:
         file: ./front/Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/frontend-image:latest
-
-  sonarcloud:
-    name: SonarCloud
-    runs-on: ubuntu-latest
-    needs: build-and-deploy-frontend
-    defaults:
-      run:
-        working-directory: ./front
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
-        with:
-          projectBaseDir: front
-          args: >
-            -Dsonar.organization=org-shiirow-123
-            -Dsonar.projectKey=shiirows_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
