@@ -29,16 +29,6 @@ jobs:
       run: npm test -- --watch=false --browsers=ChromeHeadless --code-coverage
       working-directory: front
 
-    - name: SonarCloud Analysis for Frontend
-      run: |
-        npx sonar-scanner \
-          -Dsonar.projectKey=AissiouAbdallahDevFs_FrontendProject \
-          -Dsonar.sources=./front \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
